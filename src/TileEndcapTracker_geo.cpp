@@ -167,15 +167,15 @@ static Ref_t create_detector(Detector& description, xml_h e, SensitiveDetector s
 
     PlacedVolume layer_pv;
     if (reflect) {
-      // layer_pv = assembly.placeVolume(layer_vol, Position(0, 0, -layer_center_z));
-      layer_pv =
-	assembly.placeVolume(layer_vol, Transform3D(RotationZYX(0.0, -M_PI, 0.0), Position(0, 0, -layer_center_z)));
+      layer_pv = assembly.placeVolume(layer_vol, Position(0, 0, -layer_center_z));
+      // layer_pv =
+      // assembly.placeVolume(layer_vol, Transform3D(RotationZYX(0.0, -M_PI, 0.0), Position(0, 0, -layer_center_z)));
       layer_pv.addPhysVolID("layer", l_id);
       layer_name += "_N";
     } else {
-      layer_pv = assembly.placeVolume(layer_vol, Position(0, 0, layer_center_z));
-      // layer_pv =
-      // assembly.placeVolume(layer_vol, Transform3D(RotationZYX(0.0, -M_PI, 0.0), Position(0, 0, layer_center_z)));
+      // layer_pv = assembly.placeVolume(layer_vol, Position(0, 0, layer_center_z));
+      layer_pv =
+	assembly.placeVolume(layer_vol, Transform3D(RotationZYX(0.0, -M_PI, 0.0), Position(0, 0, layer_center_z)));
       layer_pv.addPhysVolID("layer", l_id);
       layer_name += "_P";
     }
